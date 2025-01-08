@@ -1,0 +1,72 @@
+{
+  "users": [
+    {
+      "id": "6d94",
+      "name": "kamlesh kumar",
+      "email": "kk@gmail.com",
+      "password": "123456"
+    },
+    {
+      "id": "456a",
+      "name": "Kanishk",
+      "email": "kkk@gmail.com",
+      "password": "123456"
+    }
+  ],
+  "jobs": [
+    {
+      "id": "d737",
+      "position": "UX Developer",
+      "company": "Roboto System",
+      "jobLocation": "Channai",
+      "jobType": "remote",
+      "status": "interview",
+      "createdAt": "Jan 6th, 2025"
+    },
+    {
+      "id": "72dd",
+      "position": "UI Developer",
+      "company": "Coherent",
+      "jobLocation": "Mumbai",
+      "jobType": "full-time",
+      "status": "pending",
+      "createdAt": "Apr 6th, 2025"
+    },
+    {
+      "id": "56b5",
+      "position": "Software Developer",
+      "company": "Thunk",
+      "jobLocation": "Pune",
+      "jobType": "full-time",
+      "status": "pending",
+      "createdAt": "Sep 6th, 2025"
+    },
+    {
+      "id": "8425",
+      "position": "Testing for the Stats",
+      "company": "Absolute Report",
+      "jobLocation": "Pune",
+      "jobType": "full-time",
+      "status": "declined",
+      "createdAt": "Jun 7th, 2025"
+    },
+    {
+      "id": "56b6",
+      "position": "Software Developer",
+      "company": "Thunk",
+      "jobLocation": "Pune",
+      "jobType": "full-time",
+      "status": "pending",
+      "createdAt": "May 6th, 2025"
+    },
+    {
+      "id": "8427",
+      "position": "Testing for the Stats",
+      "company": "Absolute Report",
+      "jobLocation": "Pune",
+      "jobType": "full-time",
+      "status": "declined",
+      "createdAt": "Aug 7th, 2025"
+    }
+  ]
+}
