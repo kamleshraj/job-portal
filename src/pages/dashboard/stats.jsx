@@ -9,11 +9,11 @@ const Stats = () => {
   
   useEffect(()=>{
     dispatch(showStats())
-  },[])
+  },[dispatch])
   return (
     <>
     <StatsContainer/>
-    <ChartsContainer/>
+    {/* <ChartsContainer/> */}
     </>
   )
 }

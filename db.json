@@ -4,25 +4,18 @@
       "id": "6d94",
       "name": "kamlesh kumar",
       "email": "kk@gmail.com",
-      "password": "123456"
+      "password": "123456",
+      "location": "Pune"
     },
     {
       "id": "456a",
       "name": "Kanishk",
       "email": "kkk@gmail.com",
-      "password": "123456"
+      "password": "123456",
+      "location": "Pune"
     }
   ],
   "jobs": [
-    {
-      "id": "d737",
-      "position": "UX Developer",
-      "company": "Roboto System",
-      "jobLocation": "Channai",
-      "jobType": "remote",
-      "status": "interview",
-      "createdAt": "Jan 6th, 2025"
-    },
     {
       "id": "72dd",
       "position": "UI Developer",
@@ -33,40 +26,49 @@
       "createdAt": "Apr 6th, 2025"
     },
     {
-      "id": "56b5",
+      "id": "b773",
       "position": "Software Developer",
-      "company": "Thunk",
+      "company": "Intech",
+      "jobLocation": "Pune",
+      "jobType": "part-time",
+      "status": "interview",
+      "createdAt": "Jan 8th, 2025"
+    },
+    {
+      "id": "97a0",
+      "position": "QA",
+      "company": "Intech",
+      "jobLocation": "Pune",
+      "jobType": "remote",
+      "status": "declined",
+      "createdAt": "Jan 8th, 2025"
+    },
+    {
+      "id": "8d76",
+      "position": "Testing for the update",
+      "company": "Intech",
       "jobLocation": "Pune",
       "jobType": "full-time",
       "status": "pending",
-      "createdAt": "Sep 6th, 2025"
+      "createdAt": "Jan 8th, 2025"
     },
     {
-      "id": "8425",
-      "position": "Testing for the Stats",
-      "company": "Absolute Report",
+      "id": "415c",
+      "position": "Data Analytics",
+      "company": "GRAP",
       "jobLocation": "Pune",
-      "jobType": "full-time",
-      "status": "declined",
-      "createdAt": "Jun 7th, 2025"
+      "jobType": "part-time",
+      "status": "interview",
+      "createdAt": "Jan 8th, 2025"
     },
     {
-      "id": "56b6",
-      "position": "Software Developer",
-      "company": "Thunk",
+      "id": "7412",
+      "position": "Java Developer",
+      "company": "Vital Cloud",
       "jobLocation": "Pune",
       "jobType": "full-time",
       "status": "pending",
-      "createdAt": "May 6th, 2025"
-    },
-    {
-      "id": "8427",
-      "position": "Testing for the Stats",
-      "company": "Absolute Report",
-      "jobLocation": "Pune",
-      "jobType": "full-time",
-      "status": "declined",
-      "createdAt": "Aug 7th, 2025"
+      "createdAt": "Jan 8th, 2025"
     }
   ]
 }

@@ -22,7 +22,7 @@ const AddJobs = () => {
     editJobId
   } = useSelector((store)=>store.job)
   const {user} = useSelector((store)=>store.user)
-
+  
   const handleSubmit=(e)=>{
     e.preventDefault()
     if(!position || !company || !jobLocation){

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { getUserFromLocalStorage } from "./localStorage";
+//import { getUserFromLocalStorage } from "./localStorage";
 
 const customFetch = axios.create({
     baseURL:'http://localhost:5001'
