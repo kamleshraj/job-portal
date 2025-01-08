@@ -34,10 +34,8 @@ const JobContainer = () => {
         <h5>{totalJobs} Jobs Found</h5>
         <div className='jobs'>
         {jobsToDisplay.length === 0 ? (
-        // No jobs or filtered data available
         <p>{hasFilteredJobs ? "Data not found." : "No jobs found."}</p>
       ) : (
-        // Display jobs or filtered jobs
         jobsToDisplay.map((job) => <Job key={job.id} {...job} />)
       )}
         </div>
