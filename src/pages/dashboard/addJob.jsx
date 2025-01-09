@@ -31,6 +31,7 @@ const AddJobs = () => {
     }
     const createdAt = new Date().toISOString();
     const date = moment(createdAt).format('MMM Do, YYYY');
+    
     if(isEditing){
       dispatch(
         editJob({
@@ -49,6 +50,7 @@ const AddJobs = () => {
     dispatch(handleChange({name,value}))
   }
   useEffect(()=>{
+    //dispatch(clearValues())
     if(!isEditing){
       dispatch(
         handleChange({

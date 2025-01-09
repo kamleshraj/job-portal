@@ -26,9 +26,11 @@ const SearchContainer=()=>{
     return(
        <Wrapper>
        <form className='form'>
-        <h4>Search Form</h4>
         <div className='form-center'>
-            <FormRow type="text" labelText="Search" name="search" value={search} handleChange = {handleSearch}/>
+            <h4>Filters Jobs</h4>
+            <div className='search-box'>
+                <FormRow type="text" labelText="Search" name="search" value={search} handleChange = {handleSearch}/>
+            </div>
             <FormRowSelect labelText="Status" name="searchStatus" value={searchStatus} handleChange={handleSearch} list={['all',...statusOptions]}/>
             <FormRowSelect labelText="Type" name="searchType" value={searchType} handleChange={handleSearch} list={['all',...jobTypeOptions]}/>
             <button className='btn btn-block btn-danger' disabled={isLoading} onClick={handleSubmit}>Clear Filters</button>

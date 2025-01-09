@@ -28,15 +28,6 @@ export const registerUser = createAsyncThunk('user/registerUser', async(user,thu
     }
 })
 
-// export const loginUser = createAsyncThunk('user/loginUser', async(user,thunkAPI)=>{
-//     try {
-//         const response = await customFetch.get('/users');
-//         return response.data
-//     } catch (error) {
-//         return thunkAPI.rejectWithValue(error.response.data.msg)
-//     }
-// })
-
 export const loginUser = createAsyncThunk(
     'user/loginUser',
     async (user, thunkAPI) => {

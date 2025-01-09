@@ -4,6 +4,7 @@ const Wrapper = styled.section`
 .form {
     width: 100%;
     max-width: 100%;
+    margin-top:15px;
   }
  .form-input,
   .form-select,
@@ -33,8 +34,11 @@ const Wrapper = styled.section`
   }
   @media (min-width: 992px) {
     .form-center {
-      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      align-items:center;
     }
+    h4{margin-bottom:0}
+    .search-box{width:250px}
     .btn-block {
       margin-top: 0;
     }

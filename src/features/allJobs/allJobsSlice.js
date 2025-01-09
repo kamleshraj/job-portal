@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import customFetch from "../../utils/axios";
+import moment from "moment";
 
 const initialFiltersState={
     search:'',
@@ -84,7 +85,6 @@ const allJobsSlice = createSlice({
             state.isLoading = true
         },
         [getAllJobs.fulfilled]:(state,{payload})=>{
-            console.log(payload);
             state.isLoading = false;
             state.jobs = payload;
             state.numOfPages = payload.numOfPages;
@@ -105,26 +105,35 @@ const allJobsSlice = createSlice({
                 return acc;
             }, {});
             state.stats = statusCount;
-
-            // Calculate monthly job counts
-    //         const monthlyCounts = payload.reduce((acc, job) => {
-    //             const date = new Date(job.createdAt);
-    //             const month = date.toLocaleString("default", { month: "short" });
-    //             const year = date.getFullYear();
-    //             const key = `${month} ${year}`;
-
-    //             acc[key] = (acc[key] || 0) + 1;
-    //             return acc;
-    //         }, {});
-
-    // // Transform into an array for Recharts
-    // const monthlyApplications = Object.entries(monthlyCounts).map(([month, count]) => ({
-    //     month,
-    //     count,
-    // }));
-    
-    // // Update state
-    //state.monthlyApplications = monthlyApplications;
+            
+            const monthlyCounts = payload.reduce((acc, job) => {
+                // Parse the date using the correct format
+                const date = moment(job.createdAt, "MMM Do, YYYY");
+                
+                // Validate the date
+                if (!date.isValid()) {
+                  console.error("Invalid date format:", job.createdAt);
+                  return acc;
+                }
+              
+                // Get the month and year
+                const month = date.format("MMM"); // Short month name
+                const year = date.format("YYYY"); // Year
+                const key = `${month} ${year}`;   // Combine month and year
+              
+                // Increment the count for this month
+                acc[key] = (acc[key] || 0) + 1;
+                return acc;
+              }, {});
+              
+              // Transform into an array for Recharts
+              const monthlyApplications = Object.entries(monthlyCounts).map(([month, count]) => ({
+                month,
+                count,
+              }));
+        
+              // Update state
+              state.monthlyApplications = monthlyApplications;
         },
         [showStats.rejected]:(state,{payload})=>{
             state.isLoading = false;
