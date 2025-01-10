@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 
 const ChartsContainer = () => {
    const {monthlyApplications} = useSelector((store)=>store.allJobs);
+   console.log(monthlyApplications);
+   
   const[barChart,setBarChart] = useState(true)
   return (
     <Wrapper>

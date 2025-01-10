@@ -105,24 +105,21 @@ const allJobsSlice = createSlice({
                 return acc;
             }, {});
             state.stats = statusCount;
-            
+
+            const monthsOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
             const monthlyCounts = payload.reduce((acc, job) => {
-                // Parse the date using the correct format
                 const date = moment(job.createdAt, "MMM Do, YYYY");
                 
-                // Validate the date
                 if (!date.isValid()) {
                   console.error("Invalid date format:", job.createdAt);
                   return acc;
                 }
               
                 // Get the month and year
-                const month = date.format("MMM"); // Short month name
-                const year = date.format("YYYY"); // Year
-                const key = `${month} ${year}`;   // Combine month and year
+                const month = date.format("MMM");
               
                 // Increment the count for this month
-                acc[key] = (acc[key] || 0) + 1;
+                acc[month] = (acc[month] || 0) + 1;
                 return acc;
               }, {});
               
@@ -130,7 +127,7 @@ const allJobsSlice = createSlice({
               const monthlyApplications = Object.entries(monthlyCounts).map(([month, count]) => ({
                 month,
                 count,
-              }));
+              })).sort((a, b) => monthsOrder.indexOf(a.month) - monthsOrder.indexOf(b.month));
         
               // Update state
               state.monthlyApplications = monthlyApplications;
