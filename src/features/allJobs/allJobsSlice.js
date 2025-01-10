@@ -2,6 +2,7 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import customFetch from "../../utils/axios";
 import moment from "moment";
+import { monthsOrder } from "../../utils/constants";
 
 const initialFiltersState={
     search:'',
@@ -34,10 +35,19 @@ export const showStats = createAsyncThunk('allStats/showStats', async(_, thunkAP
 
 export const getAllJobs = createAsyncThunk('allJobs/getJobs', async(_, thunkAPI)=>{
    try {
-    const resp = await customFetch.get('/jobs')
-    return resp.data
+    const resp = await customFetch.get(`/jobs`)
+    //const resp = await customFetch.get(`/jobs?_page=${page}&_limit=${limit}`)
+    return resp.data;
+    // const totalJobs = resp.headers.get("X-Total-Count");
+    // const numOfPages = Math.ceil(totalJobs / limit);
+    // console.log(numOfPages)
+    // return {
+    //     jobs: data,
+    //     totalJobs: Number(totalJobs),
+    //     numOfPages,
+    // };
    } catch (error) {
-    return thunkAPI.rejectWithValue(error.response.data.msg)
+    return thunkAPI.rejectWithValue(error.response?.data?.msg || "Something went wrong")
    }
 })
 
@@ -87,8 +97,9 @@ const allJobsSlice = createSlice({
         [getAllJobs.fulfilled]:(state,{payload})=>{
             state.isLoading = false;
             state.jobs = payload;
+            state.filteredJobs = payload;
+            state.totalJobs = payload.totalJobs;
             state.numOfPages = payload.numOfPages;
-            state.totalJobs = payload.totalJobs
         },
         [getAllJobs.rejected]:(state,{payload})=>{
             state.isLoading = false;
@@ -106,7 +117,7 @@ const allJobsSlice = createSlice({
             }, {});
             state.stats = statusCount;
 
-            const monthsOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            
             const monthlyCounts = payload.reduce((acc, job) => {
                 const date = moment(job.createdAt, "MMM Do, YYYY");
 

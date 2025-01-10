@@ -41,144 +41,18 @@
   ],
   "jobs": [
     {
-      "id": "72dd",
+      "id": "8dc4",
       "position": "UI Developer",
-      "company": "Coherent",
-      "jobLocation": "Mumbai",
-      "jobType": "full-time",
-      "status": "pending",
-      "createdAt": "Apr 6th, 2025"
-    },
-    {
-      "id": "b773",
-      "position": "Software Developer",
       "company": "Intech",
       "jobLocation": "Pune",
       "jobType": "part-time",
-      "status": "interview",
-      "createdAt": "Apr 8th, 2025"
-    },
-    {
-      "id": "97a0",
-      "position": "Sr. Software Developer",
-      "company": "Intech",
-      "jobLocation": "Pune",
-      "jobType": "remote",
-      "status": "declined",
-      "createdAt": "Apr 8th, 2025"
-    },
-    {
-      "id": "415c",
-      "position": "Data Analytics",
-      "company": "GRAP",
-      "jobLocation": "Pune",
-      "jobType": "part-time",
-      "status": "interview",
-      "createdAt": "Mar 8th, 2025"
-    },
-    {
-      "id": "7412",
-      "position": "Java Developer",
-      "company": "Vital Cloud",
-      "jobLocation": "Pune",
-      "jobType": "full-time",
-      "status": "pending",
-      "createdAt": "Apr 8th, 2025"
-    },
-    {
-      "id": "9c76",
-      "position": "Test for the date",
-      "company": "Test for the date",
-      "jobLocation": "Test for the date",
-      "jobType": "full-time",
-      "status": "pending",
-      "createdAt": "Apr 8th, 2025"
-    },
-    {
-      "id": "1ef8",
-      "position": "Testing for the date",
-      "company": "sdfsdf",
-      "jobLocation": "Mumbai",
-      "jobType": "full-time",
-      "status": "pending",
-      "createdAt": "Jun 8th, 2025"
-    },
-    {
-      "id": "b7b9",
-      "position": "Testing",
-      "company": "9765730236",
-      "jobLocation": "Mumbai",
-      "jobType": "full-time",
-      "status": "pending",
-      "createdAt": "Jan 8th, 2025"
-    },
-    {
-      "id": "8699",
-      "position": "Testing for the date",
-      "company": "9765730236",
-      "jobLocation": "Testing",
-      "jobType": "full-time",
-      "status": "pending",
-      "createdAt": "Dec 8th, 2025"
-    },
-    {
-      "id": "9512",
-      "position": "Testing for toast",
-      "company": "Pune",
-      "jobLocation": "Testing for toast",
-      "jobType": "full-time",
-      "status": "pending",
-      "createdAt": "Dec 8th, 2025"
-    },
-    {
-      "id": "f353",
-      "position": "Testing",
-      "company": "9765730236",
-      "jobLocation": "Mumbai",
-      "jobType": "full-time",
-      "status": "pending",
-      "createdAt": "Dec 8th, 2025"
-    },
-    {
-      "id": "2d27",
-      "position": "check date",
-      "company": "check date",
-      "jobLocation": "Mumbai",
-      "jobType": "full-time",
-      "status": "pending",
-      "createdAt": "Dec 8th, 2025"
-    },
-    {
-      "id": "18e7",
-      "position": "Testing",
-      "company": "Pune",
-      "jobLocation": "Mumbai",
-      "jobType": "full-time",
-      "status": "pending",
-      "createdAt": "Jan 9th, 2025"
-    },
-    {
-      "id": "a9e0",
-      "position": "UX Designer",
-      "company": "Intech",
-      "jobLocation": "Pune",
-      "jobType": "full-time",
       "status": "pending",
       "createdAt": "Jan 10th, 2025"
     },
     {
-      "id": "402d",
-      "position": "Sr. React Developer",
-      "company": "Intech",
-      "jobLocation": "Pune",
-      "jobType": "full-time",
-      "status": "pending",
-      "createdAt": "Jan 10th, 2025"
-    },
-    {
-      "id": "55b4",
-      "position": "Testing",
-      "company": "Intech",
+      "id": "38ef",
+      "position": "Business Analytics (BA)",
+      "company": "InCube Technology",
       "jobLocation": "Pune",
       "jobType": "full-time",
       "status": "pending",

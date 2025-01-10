@@ -7,13 +7,14 @@ import { getAllJobs } from '../features/allJobs/allJobsSlice';
 import PageBtnContainer from './pageBtnContainer';
 
 const JobContainer = () => {
-    const {jobs,isLoading, page, totalJobs, numOfPages, filteredJobs} = useSelector((store)=>store.allJobs);
+    const {jobs,isLoading, search, searchStatus, searchType, totalJobs, numOfPages, filteredJobs} = useSelector((store)=>store.allJobs);
 
     const dispatch = useDispatch()
-
+    console.log('jobs', jobs)
+    console.log('filtered', filteredJobs)
     useEffect(()=>{
         dispatch(getAllJobs());
-    },[dispatch])
+    }, [dispatch]);
 
     if(isLoading){
         return <Loading center/>
@@ -22,22 +23,25 @@ const JobContainer = () => {
     // if(filteredJobs.length ===0){
     //     return(
     //         <Wrapper>
-    //             <h3>No jobs to display...</h3>
+    //             <h3>Searched item not available</h3>
     //         </Wrapper>
     //     )
     // }
+    if(jobs.length ===0){
+      return(
+          <Wrapper>
+              <h3>No data to display...</h3>
+          </Wrapper>
+      )
+  }
     const hasJobs = jobs && jobs.length > 0;
     const hasFilteredJobs = filteredJobs && filteredJobs.length > 0;
-    const jobsToDisplay = hasFilteredJobs ? filteredJobs : jobs;
   return (
     <Wrapper>
         <h5>{totalJobs} Jobs Found</h5>
         <div className='jobs'>
-        {jobsToDisplay.length === 0 ? (
-        <p>{hasFilteredJobs ? "Data not found." : "No jobs found."}</p>
-      ) : (
-        jobsToDisplay.map((job) => <Job key={job.id} {...job} />)
-      )}
+
+        {filteredJobs.length > 0 ? filteredJobs.map((job) => <Job key={job.id} {...job} />):('Search data not found')}
         </div>
         {numOfPages > 1 && <PageBtnContainer/>}
     </Wrapper>
