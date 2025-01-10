@@ -109,16 +109,12 @@ const allJobsSlice = createSlice({
             const monthsOrder = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
             const monthlyCounts = payload.reduce((acc, job) => {
                 const date = moment(job.createdAt, "MMM Do, YYYY");
-                
+
                 if (!date.isValid()) {
                   console.error("Invalid date format:", job.createdAt);
                   return acc;
                 }
-              
-                // Get the month and year
                 const month = date.format("MMM");
-              
-                // Increment the count for this month
                 acc[month] = (acc[month] || 0) + 1;
                 return acc;
               }, {});
@@ -128,8 +124,6 @@ const allJobsSlice = createSlice({
                 month,
                 count,
               })).sort((a, b) => monthsOrder.indexOf(a.month) - monthsOrder.indexOf(b.month));
-        
-              // Update state
               state.monthlyApplications = monthlyApplications;
         },
         [showStats.rejected]:(state,{payload})=>{
