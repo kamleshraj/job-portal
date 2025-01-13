@@ -18,6 +18,7 @@ const Wrapper = styled.section`
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 1rem;
+      .job-skeleton{margin-bottom: 30px}
     }
   }
 `

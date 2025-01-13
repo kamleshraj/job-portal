@@ -60,7 +60,7 @@ const Wrapper = styled.section`
       grid-template-columns: 1fr 1fr 1fr;
     }
     .form-center button {
-      margin-top: 0;
+      margin-top: 1rem;
     }
   }
 `;

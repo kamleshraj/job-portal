@@ -2,7 +2,7 @@ import React from 'react'
 import { FaLocationArrow,FaBriefcase,FaCalendarAlt } from 'react-icons/fa';
 import {Link} from 'react-router-dom';
 import Wrapper from '../assets/wrapper/jobCard';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import JobInfo from './jobInfo';
 import { deleteJob, setEditJob } from '../features/jobs/jobSlice';
 
@@ -16,7 +16,7 @@ const Job = ({
   status
 }) => {
   const dispatch = useDispatch();
-  const date = createdAt;
+  const {user} = useSelector((store)=>store.user)
   return (
     <Wrapper>
       <header>
@@ -29,17 +29,18 @@ const Job = ({
       <div className='content'>
         <div className='content-center'>
           <JobInfo icon={<FaLocationArrow/>} text={jobLocation}/>
-          <JobInfo icon={<FaCalendarAlt/>} text={date}/>
+          <JobInfo icon={<FaCalendarAlt/>} text={createdAt}/>
           <JobInfo icon={<FaBriefcase/>} text={jobType}/>
           <div className={`status ${status}`}>{status}</div>
         </div>
-        <footer>
+       {user?.role=='admin'?
+       (<footer>
           <div className='actions'>
             <Link 
             to="/add-job"
             className='btn edit-btn'
             onClick={()=>{
-              dispatch(setEditJob({editJobId:id,position,company,jobLocation,jobType,status}))
+              dispatch(setEditJob({editJobId:id,position,company,jobLocation,jobType,status,createdAt}))
             }}
             >
               Edit {' '}
@@ -52,7 +53,8 @@ const Job = ({
               Delete
             </button>
           </div>
-        </footer>
+        </footer>)
+        :""}
       </div>
     </Wrapper>
   )

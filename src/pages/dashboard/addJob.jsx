@@ -19,29 +19,30 @@ const AddJobs = () => {
     status,
     statusOptions,
     isEditing,
-    editJobId
+    editJobId,
+    createdAt
   } = useSelector((store)=>store.job)
   const {user} = useSelector((store)=>store.user)
   
   const handleSubmit=(e)=>{
     e.preventDefault()
-    if(!position || !company || !jobLocation){
+    if(!position || !company || !jobLocation || !createdAt){
       toast.error('Please fill out all fields');
       return
     }
-    const createdAt = new Date().toISOString();
+    // const createdAt = new Date().toISOString();
     const date = moment(createdAt).format('MMM Do, YYYY');
-    
+    const loginUser = user.email
     if(isEditing){
       dispatch(
         editJob({
           jobId:editJobId,
-          job:{position,company,jobLocation,jobType, status}
+          job:{position,company,jobLocation,jobType,status,date}
         })
       )
       return
     }
-    dispatch(createJob({position:position, company:company, jobLocation:jobLocation, jobType:jobType, status:status,createdAt:date}))
+    dispatch(createJob({position:position, company:company, jobLocation:jobLocation, jobType:jobType, status:status,createdAt:date,createdBy:loginUser}))
   }
 
   const handleJobInput=(e)=>{
@@ -99,6 +100,13 @@ const AddJobs = () => {
           value={status}
           handleChange={handleJobInput}
           list={statusOptions}
+          />
+          <FormRow
+          type="date"
+          name="createdAt"
+          labelText="Date"
+          value={createdAt}
+          handleChange={handleJobInput}
           />
           <div className='btn-container'>
             <button type="button" className='btn btn-block clear-btn' onClick={()=>dispatch(clearValues())}>

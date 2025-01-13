@@ -13,7 +13,7 @@ const initialState={
     status:'pending',
     isEditing:false,
     editJobId:'',
-    createdAt:''
+    createdAt:null
 };
 
 export const createJob = createAsyncThunk('job/createJob',createJobThunk)
@@ -48,10 +48,10 @@ const jobSlice=createSlice({
             state.isLoading = false;
             toast.error(payload)
         },
-        [deleteJob.fulfilled]:(state,{payload})=>{
+        [deleteJob.fulfilled]:()=>{
             toast.success('Job Deleted Successfully!!!')
         },
-        [deleteJob.rejected]:(state,{payload})=>{
+        [deleteJob.rejected]:({payload})=>{
             toast.error(payload)
         },
         [editJob.pending]:(state)=>{

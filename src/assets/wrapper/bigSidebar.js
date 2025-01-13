@@ -31,6 +31,11 @@ const Wrapper = styled.aside`
       display: flex;
       flex-direction: column;
     }
+    .nav-link.disabled{
+    display:none;
+    cursor: not-allowed;
+    color: gray;
+    }
     .nav-link {
       display: flex;
       align-items: center;

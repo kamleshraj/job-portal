@@ -16,6 +16,7 @@ const initialFiltersState={
 const initialState={
     isLoading:true,
     jobs:[],
+    myJobs:[],
     totalJobs:0,
     numOfPages:1,
     page:1,
@@ -88,6 +89,9 @@ const allJobsSlice = createSlice({
               );
             }
             state.filteredJobs = filterJobs;
+        },
+        viewMyJob:(state)=>{
+
         }
     },
     extraReducers:{

@@ -4,53 +4,51 @@ import { Logo } from '../components';
 import FormRow from '../components/FormRow';
 import { toast } from 'react-toastify';
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser } from '../features/users/userSlice';
+import { loginUser } from '../features/users/userSlice';
 import { useNavigate } from 'react-router-dom';
 
 const initialState={
-  name:'',
-  email:'',
-  password:'',
-  isMember:true
-}
-
-const Register = () => {
-  const[values,setValues]=useState(initialState);
-  const navigate = useNavigate()
-  const{isLoading} = useSelector((store)=>store.user)
-  const dispatch = useDispatch()
-  
-  const handleChange=(e)=>{
-    const name = e.target.name;
-    const value = e.target.value;
-    setValues({...values, [name]:value})
+    email:'',
+    password:'',
+    isMember:true
   }
 
-  const handleSubmit=(e)=>{
-    e.preventDefault()
-    const{name,email,password,isMember} = values;
-    if(!email || !password || (!isMember && !name)){
-      toast.error('Please fill out all the fields')
-      return;
-    }
-
-    if (isMember) {
-      dispatch(registerUser({ name, email, password }));
-      navigate("/login");
-    } 
-  }
-  return (
-    <Wrapper className='full-page'>
+const Login=()=>{
+    const[values,setValues]=useState(initialState);
+      const navigate = useNavigate()
+      const{user,isLoading} = useSelector((store)=>store.user)
+      const dispatch = useDispatch()
+      
+      const handleChange=(e)=>{
+        const name = e.target.name;
+        const value = e.target.value;
+        setValues({...values, [name]:value})
+      }
+    
+      const handleSubmit=(e)=>{
+        e.preventDefault()
+        const{email,password,isMember} = values;
+        if(!email || !password){
+          toast.error('Please fill out all the fields')
+          return;
+        }
+        if (isMember) {
+          dispatch(loginUser({ email, password }));
+        }
+      }
+      useEffect(() => {
+        if (user) {
+          setTimeout(() => {
+            navigate("/");
+          }, 2000);
+        }
+        setValues({ ...values, isMember: true });
+      }, [user,navigate]);
+    return(
+        <Wrapper className='full-page'>
       <form className='form' onSubmit={handleSubmit}>
         <Logo/>
-        <h3>Register</h3>
-        <FormRow 
-         type="text"
-         name="name"
-         value={values.name}
-         handleChange={handleChange}
-         labelText="Name"
-        />
+        <h3>Login</h3>
         <FormRow 
          type="email"
          name="email"
@@ -69,7 +67,7 @@ const Register = () => {
         
         <button type='submit' className='btn btn-block' disabled={isLoading}>{isLoading?'Loading...':'Submit'}</button>
         <p>
-        {values.isMember ? (
+        {!values.isMember ? (
           <>
             Already a member?{' '}
             <button
@@ -95,7 +93,7 @@ const Register = () => {
       </p>
       </form>
     </Wrapper>
-  )
+    )
 }
 
-export default Register
+export default Login

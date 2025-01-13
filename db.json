@@ -5,58 +5,73 @@
       "name": "kamlesh kumar",
       "email": "kk@gmail.com",
       "password": "123456",
-      "location": "Pune"
+      "location": "Pune",
+      "role": "admin"
     },
     {
-      "id": "456a",
-      "name": "Kanishk",
-      "email": "kkk@gmail.com",
+      "id": "eea7",
+      "name": "Shiva",
+      "email": "shiva@gmail.com",
       "password": "123456",
-      "location": "Pune"
+      "role": "jobSeeker"
     },
     {
-      "id": "23d7",
-      "name": "Nikita",
-      "email": "nn@gmail.com",
-      "password": "123456"
-    },
-    {
-      "id": "8916",
-      "name": "Test",
-      "email": "tt@gmail.com",
-      "password": "123456"
-    },
-    {
-      "id": "86f5",
-      "name": "Shreyas",
-      "email": "ss@gmail.com",
-      "password": "123456"
-    },
-    {
-      "id": "2dbf",
-      "name": "Chetan",
-      "email": "cc@gmail.com",
-      "password": "123456"
+      "id": "d28f",
+      "name": "Shiv Prasad",
+      "email": "shive@gmail.com",
+      "password": "123456",
+      "role": "admin"
     }
   ],
   "jobs": [
     {
-      "id": "8dc4",
-      "position": "UI Developer",
-      "company": "Intech",
-      "jobLocation": "Pune",
-      "jobType": "part-time",
+      "id": "ffc6",
+      "position": "Front-end Developer",
+      "company": "HCL",
+      "jobLocation": "Mumbai",
+      "jobType": "intership",
       "status": "pending",
-      "createdAt": "Jan 10th, 2025"
+      "createdAt": "2025-04-27"
     },
     {
-      "id": "38ef",
-      "position": "Business Analytics (BA)",
+      "id": "b155",
+      "position": "UI Developer",
+      "company": "Intech",
+      "jobLocation": "Mumbai",
+      "jobType": "full-time",
+      "status": "pending",
+      "createdAt": "Jan 30th, 2025",
+      "createdBy": "shiva@gmail.com"
+    },
+    {
+      "id": "0534",
+      "position": "Tester",
+      "company": "InCube Technology",
+      "jobLocation": "Mumbai",
+      "jobType": "full-time",
+      "status": "pending",
+      "createdAt": "Feb 28th, 2025",
+      "createdBy": "shiva@gmail.com"
+    },
+    {
+      "id": "6b00",
+      "position": "QA and Tester",
+      "company": "Intech",
+      "jobLocation": "Mumbai",
+      "jobType": "full-time",
+      "status": "pending",
+      "createdAt": "Feb 28th, 2025",
+      "createdBy": "shive@gmail.com"
+    },
+    {
+      "id": "abfe",
+      "position": "Andorid Developer",
       "company": "InCube Technology",
       "jobLocation": "Pune",
       "jobType": "full-time",
       "status": "pending",
-      "createdAt": "Jan 10th, 2025"
+      "createdAt": "Mar 21st, 2025",
+      "createdBy": "kk@gmail.com"
     }
   ]
 }
