@@ -27,7 +27,7 @@ const Wrapper = styled.section`
     align-self: end;
     margin-top: 1rem;
   }
-     @media (min-width: 768px) {
+  @media (min-width: 768px) {
     .form-center {
       grid-template-columns: 1fr 1fr;
     }

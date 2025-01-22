@@ -16,6 +16,7 @@ const initialFiltersState={
 const initialState={
     isLoading:true,
     jobs:[],
+    job:{},
     myJobs:[],
     totalJobs:0,
     numOfPages:1,
@@ -34,23 +35,24 @@ export const showStats = createAsyncThunk('allStats/showStats', async(_, thunkAP
     }
 })
 
-export const getAllJobs = createAsyncThunk('allJobs/getJobs', async(_, thunkAPI)=>{
+export const getAllJobs = createAsyncThunk('allJobs/getJobs', async(status, thunkAPI)=>{
    try {
     const resp = await customFetch.get(`/jobs`)
-    //const resp = await customFetch.get(`/jobs?_page=${page}&_limit=${limit}`)
-    return resp.data;
-    // const totalJobs = resp.headers.get("X-Total-Count");
-    // const numOfPages = Math.ceil(totalJobs / limit);
-    // console.log(numOfPages)
-    // return {
-    //     jobs: data,
-    //     totalJobs: Number(totalJobs),
-    //     numOfPages,
-    // };
+    const filteredData = resp.data.filter((job) => job.status === status);
+    return filteredData
    } catch (error) {
     return thunkAPI.rejectWithValue(error.response?.data?.msg || "Something went wrong")
    }
 })
+export const getJob = createAsyncThunk('job/getJob',async(id,thunkAPI)=>{
+    try {
+        const resp = await customFetch.get(`/jobs/${id}`)
+        return resp.data
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.response.data.msg)
+    }
+})
+
 
 const allJobsSlice = createSlice({
     name:'allJobs',
@@ -89,9 +91,6 @@ const allJobsSlice = createSlice({
               );
             }
             state.filteredJobs = filterJobs;
-        },
-        viewMyJob:(state)=>{
-
         }
     },
     extraReducers:{
@@ -102,11 +101,20 @@ const allJobsSlice = createSlice({
             state.isLoading = false;
             state.jobs = payload;
             state.filteredJobs = payload;
-            state.totalJobs = payload.totalJobs;
-            state.numOfPages = payload.numOfPages;
         },
         [getAllJobs.rejected]:(state,{payload})=>{
             state.isLoading = false;
+            toast.error(payload)
+        },
+        [getJob.pending]:(state)=>{
+            state.isLoading = true;
+        },
+        [getJob.fulfilled]:(state,{payload})=>{
+            state.isLoading = false;
+            state.job = payload
+        },
+        [getJob.rejected]:(state,{payload})=>{
+            state.isLoading =false;
             toast.error(payload)
         },
         [showStats.pending]:(state)=>{
@@ -126,7 +134,6 @@ const allJobsSlice = createSlice({
                 const date = moment(job.createdAt, "MMM Do, YYYY");
 
                 if (!date.isValid()) {
-                  console.error("Invalid date format:", job.createdAt);
                   return acc;
                 }
                 const month = date.format("MMM");

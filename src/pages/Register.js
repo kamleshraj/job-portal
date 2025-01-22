@@ -29,6 +29,7 @@ const Register = () => {
   const handleSubmit=(e)=>{
     e.preventDefault()
     const{name,email,password,isMember} = values;
+    
     if(!email || !password || (!isMember && !name)){
       toast.error('Please fill out all the fields')
       return;

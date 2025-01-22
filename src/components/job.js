@@ -13,12 +13,18 @@ const Job = ({
   jobLocation,
   jobType,
   createdAt,
-  status
+  status,
+  isJobApplied
 }) => {
   const dispatch = useDispatch();
   const {user} = useSelector((store)=>store.user)
+  
+  const deleteHandler=(id)=>{
+    dispatch(deleteJob(id))
+  }
   return (
     <Wrapper>
+      <Link to={`/job-details/${id}`}>
       <header>
         <div className='main-icon'>{company.charAt(0)}</div>
         <div className='info'>
@@ -26,6 +32,7 @@ const Job = ({
           <p>{company}</p>
         </div>
       </header>
+      </Link>
       <div className='content'>
         <div className='content-center'>
           <JobInfo icon={<FaLocationArrow/>} text={jobLocation}/>
@@ -33,14 +40,14 @@ const Job = ({
           <JobInfo icon={<FaBriefcase/>} text={jobType}/>
           <div className={`status ${status}`}>{status}</div>
         </div>
-       {user?.role=='admin'?
+       {user?.role==='admin'?
        (<footer>
           <div className='actions'>
             <Link 
             to="/add-job"
             className='btn edit-btn'
             onClick={()=>{
-              dispatch(setEditJob({editJobId:id,position,company,jobLocation,jobType,status,createdAt}))
+              dispatch(setEditJob({editid:id,position,company,jobLocation,jobType,status,createdAt}))
             }}
             >
               Edit {' '}
@@ -48,14 +55,20 @@ const Job = ({
             <button
             type='button'
             className='btn delete-btn'
-            onClick={()=>dispatch(deleteJob(id))}
+            onClick={()=>deleteHandler(id)}
             >
               Delete
             </button>
           </div>
         </footer>)
-        :""}
+        : <Link 
+        to={`/job-details/${id}`}
+        className='btn edit-btn'
+        >
+          {isJobApplied?'Applied':'Apply Job'}
+        </Link>}
       </div>
+     
     </Wrapper>
   )
 }

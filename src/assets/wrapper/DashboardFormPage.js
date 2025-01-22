@@ -20,6 +20,14 @@ const Wrapper = styled.section`
     .form-row {
     margin-bottom: 0;
   }
+    .form-row.job-des{
+    grid-column-start: 1;
+    grid-column-end: 6;
+    }
+    .form-row.btn-row{
+    grid-column-start: 1;
+    grid-column-end: 6;
+    }
   .form-center {
     display: grid;
     row-gap: 0.5rem;
@@ -27,11 +35,11 @@ const Wrapper = styled.section`
   .form-center button {
     align-self: end;
     height: 35px;
-    margin-top: 1rem;
   }
   .btn-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    grid-template-rows:auto;
     column-gap: 1rem;
     align-self: flex-end;
     margin-top: 0.5rem;

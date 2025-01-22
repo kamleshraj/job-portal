@@ -8,7 +8,7 @@ import { updateUser } from '../../features/users/userSlice';
 
 const Profile = () => {
   const{isLoading, user} = useSelector((store)=>store.user);
-  
+  const {userId} = user
   const dispatch = useDispatch()
   const [userData, setUserData] = useState({
     name: '',
@@ -30,12 +30,17 @@ const Profile = () => {
 
   const handleSubmit=(e)=>{
     e.preventDefault();
-    const{name,email,lastName,location} = userData
+    const{name,email,lastName,location} = userData;
+
     if(!name || !email||!lastName || !location){
       toast.error('Please fill out all fields');
       return
     }
-    dispatch(updateUser({name,email,lastName,location}))
+    if(user.email !==email){
+      toast.error('Email id can not change')
+      return
+    }
+    dispatch(updateUser({userId,user:{name,lastName,email,location}}))
   }
   const handleChange = (e)=>{
     const name = e.target.name

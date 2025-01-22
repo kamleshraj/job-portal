@@ -8,7 +8,12 @@ const NavLinks=({toggleSidebar})=>{
         <div className={`nav-links ${user.role=='admin'?'adminLogin':'jobSeeker'}`}>
             {links.map((link)=>{
                 const {text, path, id,icon} = link;
-                const isDisabled = user.role !== 'admin' && text === 'add job';
+                
+                const isDisabled = 
+                user.role !== 'admin' && 
+                user.role === 'jobseeker' && 
+                (text === 'add job' || text === 'stats' || text === 'My Jobs');
+
                 return(
                     <NavLink 
                     to={isDisabled ? '#' : path}

@@ -2,76 +2,361 @@
   "users": [
     {
       "id": "6d94",
-      "name": "kamlesh kumar",
+      "name": "KAMLESH K",
       "email": "kk@gmail.com",
       "password": "123456",
       "location": "Pune",
-      "role": "admin"
+      "role": "admin",
+      "lastName": "KUMAR"
     },
     {
-      "id": "eea7",
+      "id": "9025",
       "name": "Shiva",
       "email": "shiva@gmail.com",
-      "password": "123456",
-      "role": "jobSeeker"
+      "password": "123",
+      "role": "jobseeker",
+      "jobApplied": [
+        {
+          "id": "3330",
+          "position": "React Developer",
+          "company": "InCube Technology",
+          "jobLocation": "Pune",
+          "jobType": "full-time",
+          "status": "active",
+          "createdAt": "Jan 31st, 2025",
+          "createdBy": "kk@gmail.com",
+          "skills": "React, Html",
+          "salary": "4500",
+          "noticePeriod": "05 - 15 days",
+          "jobDescription": "I am looking for the react developer will be responsible for the all dynamic work",
+          "isJobApplied": true,
+          "resumeDetails": "My profile is for the react developer and i will be responsible for the all the dynamic work"
+        },
+        {
+          "id": "12bb",
+          "position": "Angular Developer",
+          "company": "Intech",
+          "jobLocation": "Pune",
+          "jobType": "full-time",
+          "status": "active",
+          "createdAt": "Jan 31st, 2025",
+          "createdBy": "kk@gmail.com",
+          "skills": "Angular,java",
+          "salary": "1000000",
+          "noticePeriod": "30 - 45 days",
+          "jobDescription": "I am looking Angular developer",
+          "isJobApplied": true,
+          "resumeDetails": "My profile is match with this position"
+        }
+      ]
     },
     {
-      "id": "d28f",
-      "name": "Shiv Prasad",
-      "email": "shive@gmail.com",
+      "id": "91cd",
+      "name": "Shreyas",
+      "email": "shreyas@gmail.com",
+      "password": "123",
+      "role": "jobseeker",
+      "jobApplied": [
+        {
+          "id": "fc96",
+          "position": "UI Developer",
+          "company": "Intech",
+          "jobLocation": "Pune",
+          "jobType": "part-time",
+          "status": "active",
+          "createdAt": "Jan 29th, 2025",
+          "createdBy": "kk@gmail.com",
+          "skills": "React, CSS, Html5",
+          "salary": "10000",
+          "noticePeriod": "15 - 30 days",
+          "jobDescription": "Google Web Fonts\n\nTo install Roboto through the Google Web Fonts CDN, add the following code inside your project's <head /> tag:",
+          "isJobApplied": true,
+          "resumeDetails": "Shreyas resume details"
+        },
+        {
+          "id": "3330",
+          "position": "React Developer",
+          "company": "InCube Technology",
+          "jobLocation": "Pune",
+          "jobType": "full-time",
+          "status": "active",
+          "createdAt": "Jan 31st, 2025",
+          "createdBy": "kk@gmail.com",
+          "skills": "React, Html",
+          "salary": "4500",
+          "noticePeriod": "05 - 15 days",
+          "jobDescription": "I am looking for the react developer will be responsible for the all dynamic work",
+          "isJobApplied": true,
+          "resumeDetails": "this is the resume details of Shreyas"
+        },
+        {
+          "id": "12bb",
+          "position": "Angular Developer",
+          "company": "Intech",
+          "jobLocation": "Pune",
+          "jobType": "full-time",
+          "status": "active",
+          "createdAt": "Jan 31st, 2025",
+          "createdBy": "kk@gmail.com",
+          "skills": "Angular,java",
+          "salary": "1000000",
+          "noticePeriod": "30 - 45 days",
+          "jobDescription": "I am looking Angular developer",
+          "isJobApplied": true,
+          "resumeDetails": "I am UX developer"
+        }
+      ]
+    },
+    {
+      "id": "e3fe",
+      "name": "Arjun",
+      "email": "arjun@gmail.com",
+      "password": "123",
+      "role": "jobseeker",
+      "jobApplied": [
+        {
+          "id": "fc96",
+          "position": "UI Developer",
+          "company": "Intech",
+          "jobLocation": "Pune",
+          "jobType": "part-time",
+          "status": "active",
+          "createdAt": "Jan 29th, 2025",
+          "createdBy": "kk@gmail.com",
+          "skills": "React, CSS, Html5",
+          "salary": "10000",
+          "noticePeriod": "15 - 30 days",
+          "jobDescription": "Google Web Fonts\n\nTo install Roboto through the Google Web Fonts CDN, add the following code inside your project's <head /> tag:",
+          "isJobApplied": true,
+          "resumeDetails": "Arjun resume details"
+        },
+        {
+          "id": "3330",
+          "position": "React Developer",
+          "company": "InCube Technology",
+          "jobLocation": "Pune",
+          "jobType": "full-time",
+          "status": "active",
+          "createdAt": "Jan 31st, 2025",
+          "createdBy": "kk@gmail.com",
+          "skills": "React, Html",
+          "salary": "4500",
+          "noticePeriod": "05 - 15 days",
+          "jobDescription": "I am looking for the react developer will be responsible for the all dynamic work",
+          "isJobApplied": true,
+          "resumeDetails": "this is the resume details of arjun"
+        }
+      ]
+    },
+    {
+      "id": "0295",
+      "name": "Goraksh",
+      "email": "gk@gmail.com",
       "password": "123456",
-      "role": "admin"
+      "role":"admin"
     }
   ],
   "jobs": [
     {
-      "id": "ffc6",
-      "position": "Front-end Developer",
-      "company": "HCL",
-      "jobLocation": "Mumbai",
-      "jobType": "intership",
-      "status": "pending",
-      "createdAt": "2025-04-27"
-    },
-    {
-      "id": "b155",
+      "id": "fc96",
       "position": "UI Developer",
       "company": "Intech",
-      "jobLocation": "Mumbai",
-      "jobType": "full-time",
-      "status": "pending",
-      "createdAt": "Jan 30th, 2025",
-      "createdBy": "shiva@gmail.com"
+      "jobLocation": "Pune",
+      "jobType": "part-time",
+      "status": "onHold",
+      "createdAt": "Jan 29th, 2025",
+      "createdBy": "kk@gmail.com",
+      "skills": "React, CSS, Html5",
+      "salary": "10000",
+      "noticePeriod": "15 - 30 days",
+      "jobDescription": "Google Web Fonts\n\nTo install Roboto through the Google Web Fonts CDN, add the following code inside your project's <head /> tag:",
+      "applicant": [
+        {
+          "id": "e3fe",
+          "name": "Arjun",
+          "email": "arjun@gmail.com",
+          "password": "123"
+        },
+        {
+          "id": "91cd",
+          "name": "Shreyas",
+          "email": "shreyas@gmail.com",
+          "password": "123",
+          "role": "jobseeker"
+        }
+      ]
     },
     {
-      "id": "0534",
-      "position": "Tester",
-      "company": "InCube Technology",
-      "jobLocation": "Mumbai",
-      "jobType": "full-time",
-      "status": "pending",
-      "createdAt": "Feb 28th, 2025",
-      "createdBy": "shiva@gmail.com"
-    },
-    {
-      "id": "6b00",
-      "position": "QA and Tester",
-      "company": "Intech",
-      "jobLocation": "Mumbai",
-      "jobType": "full-time",
-      "status": "pending",
-      "createdAt": "Feb 28th, 2025",
-      "createdBy": "shive@gmail.com"
-    },
-    {
-      "id": "abfe",
-      "position": "Andorid Developer",
+      "id": "3330",
+      "position": "React Developer",
       "company": "InCube Technology",
       "jobLocation": "Pune",
       "jobType": "full-time",
-      "status": "pending",
-      "createdAt": "Mar 21st, 2025",
-      "createdBy": "kk@gmail.com"
+      "status": "active",
+      "createdAt": "Jan 31st, 2025",
+      "createdBy": "kk@gmail.com",
+      "skills": "React, Html",
+      "salary": "4500",
+      "noticePeriod": "05 - 15 days",
+      "jobDescription": "I am looking for the react developer will be responsible for the all dynamic work",
+      "isJobApplied": false,
+      "applicant": [
+        {
+          "id": "9025",
+          "name": "Shiva",
+          "email": "shiva@gmail.com",
+          "password": "123",
+          "role": "jobseeker"
+        },
+        {
+          "id": "e3fe",
+          "name": "Arjun",
+          "email": "arjun@gmail.com",
+          "password": "123",
+          "role": "jobseeker",
+          "jobApplied": [
+            {
+              "id": "fc96",
+              "position": "UI Developer",
+              "company": "Intech",
+              "jobLocation": "Pune",
+              "jobType": "part-time",
+              "status": "active",
+              "createdAt": "Jan 29th, 2025",
+              "createdBy": "kk@gmail.com",
+              "skills": "React, CSS, Html5",
+              "salary": "10000",
+              "noticePeriod": "15 - 30 days",
+              "jobDescription": "Google Web Fonts\n\nTo install Roboto through the Google Web Fonts CDN, add the following code inside your project's <head /> tag:",
+              "isJobApplied": true,
+              "resumeDetails": "Arjun resume details"
+            }
+          ]
+        },
+        {
+          "id": "91cd",
+          "name": "Shreyas",
+          "email": "shreyas@gmail.com",
+          "password": "123",
+          "role": "jobseeker",
+          "jobApplied": [
+            {
+              "id": "fc96",
+              "position": "UI Developer",
+              "company": "Intech",
+              "jobLocation": "Pune",
+              "jobType": "part-time",
+              "status": "active",
+              "createdAt": "Jan 29th, 2025",
+              "createdBy": "kk@gmail.com",
+              "skills": "React, CSS, Html5",
+              "salary": "10000",
+              "noticePeriod": "15 - 30 days",
+              "jobDescription": "Google Web Fonts\n\nTo install Roboto through the Google Web Fonts CDN, add the following code inside your project's <head /> tag:",
+              "isJobApplied": true,
+              "resumeDetails": "Shreyas resume details"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "a3e2",
+      "position": "Testinf for Closed Job",
+      "company": "Testinf for Closed Job",
+      "jobLocation": "Pune",
+      "jobType": "full-time",
+      "status": "closed",
+      "createdAt": "Jan 31st, 2025",
+      "createdBy": "kk@gmail.com",
+      "skills": "Testinf for Closed Job",
+      "salary": "12312312",
+      "noticePeriod": "05 - 15 days",
+      "jobDescription": "Testinf for Closed Job",
+      "isJobApplied": false
+    },
+    {
+      "id": "12bb",
+      "position": "Angular Developer",
+      "company": "Intech",
+      "jobLocation": "Pune",
+      "jobType": "full-time",
+      "status": "active",
+      "createdAt": "Jan 31st, 2025",
+      "createdBy": "kk@gmail.com",
+      "skills": "Angular,java",
+      "salary": "1000000",
+      "noticePeriod": "30 - 45 days",
+      "jobDescription": "I am looking Angular developer",
+      "isJobApplied": false,
+      "applicant": [
+        {
+          "id": "9025",
+          "name": "Shiva",
+          "email": "shiva@gmail.com",
+          "password": "123",
+          "role": "jobseeker",
+          "jobApplied": [
+            {
+              "id": "3330",
+              "position": "React Developer",
+              "company": "InCube Technology",
+              "jobLocation": "Pune",
+              "jobType": "full-time",
+              "status": "active",
+              "createdAt": "Jan 31st, 2025",
+              "createdBy": "kk@gmail.com",
+              "skills": "React, Html",
+              "salary": "4500",
+              "noticePeriod": "05 - 15 days",
+              "jobDescription": "I am looking for the react developer will be responsible for the all dynamic work",
+              "isJobApplied": true,
+              "resumeDetails": "My profile is for the react developer and i will be responsible for the all the dynamic work"
+            }
+          ]
+        },
+        {
+          "id": "91cd",
+          "name": "Shreyas",
+          "email": "shreyas@gmail.com",
+          "password": "123",
+          "role": "jobseeker",
+          "jobApplied": [
+            {
+              "id": "fc96",
+              "position": "UI Developer",
+              "company": "Intech",
+              "jobLocation": "Pune",
+              "jobType": "part-time",
+              "status": "active",
+              "createdAt": "Jan 29th, 2025",
+              "createdBy": "kk@gmail.com",
+              "skills": "React, CSS, Html5",
+              "salary": "10000",
+              "noticePeriod": "15 - 30 days",
+              "jobDescription": "Google Web Fonts\n\nTo install Roboto through the Google Web Fonts CDN, add the following code inside your project's <head /> tag:",
+              "isJobApplied": true,
+              "resumeDetails": "Shreyas resume details"
+            },
+            {
+              "id": "3330",
+              "position": "React Developer",
+              "company": "InCube Technology",
+              "jobLocation": "Pune",
+              "jobType": "full-time",
+              "status": "active",
+              "createdAt": "Jan 31st, 2025",
+              "createdBy": "kk@gmail.com",
+              "skills": "React, Html",
+              "salary": "4500",
+              "noticePeriod": "05 - 15 days",
+              "jobDescription": "I am looking for the react developer will be responsible for the all dynamic work",
+              "isJobApplied": true,
+              "resumeDetails": "this is the resume details of Shreyas"
+            }
+          ]
+        }
+      ]
     }
   ]
 }

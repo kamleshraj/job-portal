@@ -6,7 +6,9 @@ import { addUserToLocalStorage, getUserFromLocalStorage, removeUserFromLocalStor
 const initialState={
     isLoading:false,
     isSidebarOpen:false,
-    user:getUserFromLocalStorage()
+    user:getUserFromLocalStorage(),
+    resumeDetails:'',
+    jobApplied:[]
 }
 
 export const registerUser = createAsyncThunk('user/registerUser', async(user,thunkAPI)=>{
@@ -51,9 +53,9 @@ export const loginUser = createAsyncThunk(
       }
     }
   );
+  //export const editJobThunk = async({id,job},thunkAPI)=>{
 
-export const updateUser = createAsyncThunk('user/updateUser', async (user, thunkAPI) => {
-    const {id} = user
+export const updateUser = createAsyncThunk('user/updateUser', async({id,user},thunkAPI) => {
     try {
       const resp = await customFetch.patch(`/users/${id}`, user);
       return resp.data;
@@ -64,9 +66,22 @@ export const updateUser = createAsyncThunk('user/updateUser', async (user, thunk
         }
       return thunkAPI.rejectWithValue(error.response?.data?.msg);
     }
-  });
+});
   
+export const applyJob = createAsyncThunk('user/applyJob', async ({ id, jobApplied }, thunkAPI) => {
 
+  try {
+    const { user } = thunkAPI.getState().user;
+    const { applicant, ...jobWithoutApplicant } = jobApplied;
+    const updatedJobApplied = [...(user.jobApplied || []), jobWithoutApplicant];
+    const resp = await customFetch.patch(`/users/${id}`, {
+      jobApplied: updatedJobApplied,
+    });
+    return resp.data
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.response?.data?.msg);
+  }
+})
 
 const userSlice = createSlice({
     name:'user',
@@ -79,7 +94,10 @@ const userSlice = createSlice({
             state.user = null;
             state.isSidebarOpen = false;
             removeUserFromLocalStorage()
-        }
+        },
+        handleChange:(state,{payload:{name,value}})=>{    
+          state[name]=value
+      },
     },
     extraReducers:{
         [registerUser.pending]:(state)=>{
@@ -120,9 +138,22 @@ const userSlice = createSlice({
         [updateUser.rejected]:(state,{payload})=>{
             state.isLoading=false;
             toast.error(payload)
+        },
+        [applyJob.pending]:(state)=>{
+          state.isLoading=true
+        },
+        [applyJob.fulfilled]:(state,{payload})=>{
+          state.isLoading=false;
+          state.jobApplied = payload.jobApplied;
+          state.user = payload;
+          //state.jobApplied.push(payload)
+        },
+        [applyJob.rejected]:(state,{payload})=>{
+          state.isLoading=false;
+          toast.error(payload)
         }
     }
 });
 
-export const {toggleSidebar, logoutUser} = userSlice.actions
+export const {toggleSidebar, logoutUser, handleChange} = userSlice.actions
 export default userSlice.reducer

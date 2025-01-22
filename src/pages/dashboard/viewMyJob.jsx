@@ -4,7 +4,7 @@ import { getAllJobs } from "../../features/allJobs/allJobsSlice"
 import Wrapper from "../../assets/wrapper/jobContainer"
 import Job from "../../components/job"
 
-const ViewMyJob=()=>{
+const MyJob=()=>{
     const dispatch = useDispatch()
     const {jobs} = useSelector((store)=>store.allJobs)
     const {user} = useSelector((store)=>store.user)
@@ -29,4 +29,4 @@ const ViewMyJob=()=>{
     )
 }
 
-export default ViewMyJob
+export default MyJob

@@ -8,22 +8,22 @@ const StatsContainer = () => {
     const { stats } = useSelector((store) => store.allJobs);
     const defaultStats = [
         {
-          title: 'pending applications',
-          count: stats.pending || 0,
+          title: 'Active Applications',
+          count: stats.active || 0,
           icon: <FaSuitcaseRolling />,
           color: '#e9b949',
           bcg: '#fcefc7',
         },
         {
-          title: 'interviews scheduled',
-          count: stats.interview || 0,
+          title: 'On Hold',
+          count: stats.onHold || 0,
           icon: <FaCalendarCheck />,
           color: '#647acb',
           bcg: '#e0e8f9',
         },
         {
-          title: 'jobs declined',
-          count: stats.declined || 0,
+          title: 'Closed',
+          count: stats.closed || 0,
           icon: <FaBug />,
           color: '#d66a6a',
           bcg: '#ffeeee',

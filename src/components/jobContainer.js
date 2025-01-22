@@ -2,17 +2,17 @@ import React,{useEffect} from 'react';
 import Job from './job'
 import Wrapper from '../assets/wrapper/jobContainer';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllJobs } from '../features/allJobs/allJobsSlice';
+import { getAllJobs, filterJobs } from '../features/allJobs/allJobsSlice';
 import PageBtnContainer from './pageBtnContainer';
 import Skeleton from 'react-loading-skeleton';
 
-const JobContainer = () => {
-    const {jobs, isLoading, totalJobs, numOfPages, filteredJobs} = useSelector((store)=>store.allJobs);
-
+const JobContainer = ({status}) => {
+    const {jobs, isLoading, numOfPages, filteredJobs} = useSelector((store)=>store.allJobs);
+    
     const dispatch = useDispatch()
     useEffect(()=>{
-      dispatch(getAllJobs());
-    }, [dispatch]);
+      dispatch(getAllJobs(status));
+    }, [dispatch,status]);
     
     if (isLoading) {
         return (
@@ -47,9 +47,8 @@ const JobContainer = () => {
   }
   return (
     <Wrapper>
-        <h5>{totalJobs} Jobs Found</h5>
+        <h5>{filteredJobs.length} Jobs Found</h5>
         <div className='jobs'>
-
         {filteredJobs.length > 0 ? filteredJobs.map((job) => <Job key={job.id} {...job} />):('Filtered data not found')}
         </div>
         {numOfPages > 1 && <PageBtnContainer/>}
